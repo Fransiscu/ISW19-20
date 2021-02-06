@@ -30,8 +30,8 @@ SECRET_KEY = 'xo49h27fusb=+j&z82)ah%#cgn+gr22nqrcyc#_5@-os30ys93'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.35']
-
+ALLOWED_HOSTS = ['192.168.1.36', 'localhost', 'fransPi']
+DEFAULT_PORT = "49500"
 
 # Application definition
 
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+#    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ScrumBoard.urls'

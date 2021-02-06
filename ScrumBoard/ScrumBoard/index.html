@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {% load static %}
+    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
     <title>
-        {% block title %} Title {% endblock %}
+         Login 
     </title>
 
 </head>
@@ -26,41 +26,66 @@
         <div class="container">
             <div class="row align-items-center py-4">
 
-                {% url 'login' as login %}
-                {% url 'register' as register %}
-                {% if user.is_authenticated %}
-                <div class="col-9">
-                    <a href="/dashboard" class="h1 text-header">scrumboard</a>
-                </div>
-                <div class="col-2">
-                    <p class="text-center my-auto text-white">Benvenuto, {{user.username}}</p>
-                </div>
-                <div class="col">
-                     <a href="{% url 'logout' %}" id="logout_button" class="btn btn-outline-light">Logout</a>
-                </div>
-                {% elif request.path == login %}
+                
+                
+                
                 <div class="col-11">
                     <a href="" class="h1 text-header">scrumboard</a>
                 </div>
                 <div class="col">
-                     <a href="{% url 'register' %}" class="btn btn-outline-light">Registrati</a>
+                     <a href="/register/" class="btn btn-outline-light">Registrati</a>
                 </div>
 
-                {% elif request.path == register %}
-                <div class="col-11">
-                    <a href="" class="h1 text-header">scrumboard</a>
-                </div>
-                <div class="col">
-                     <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
-                </div>
-                {% endif %}
+                
             </div>
         </div>
     </div>
 
     <div class="container pt-5">
-        {% block content %}
-        {% endblock %}
+        
+<div class="d-flex justify-content-center h-100 mt-5">
+	<div class="user_card">
+		<div class="d-flex justify-content-center mt-2">
+			<h3 class="text-header">LOGIN</h3>
+		</div>
+
+		
+
+		<div class="d-flex justify-content-center form_container mb-3">
+			<form method="POST" action="">
+				<input type="hidden" name="csrfmiddlewaretoken" value="qcVj2FKFys9GquqdCGiNHlXd4E6Edgw3WKNTClEtv6KtWqSIMFwZsz1OfB9GFeCs">
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+
+					<input type="text" name="username" id="username" placeholder="Username..." class="form-control">
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+
+					<input type="password" name="password" id="password" placeholder="Password..." class="form-control" >
+				</div>
+
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<input class="btn btn-info" id="submit" type="submit" value="Login">
+				</div>
+			</form>
+		</div>
+
+		
+
+		<div class="mb-2">
+			<div class="d-flex justify-content-center links">
+				Non hai un account? <a href="/register/" id="signup" class="ml-2 text-info">Registrati</a>
+			</div>
+		</div>
+	</div>
+</div>
+
     </div>
 
     <!-- Optional JavaScript -->
